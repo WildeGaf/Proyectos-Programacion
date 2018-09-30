@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "FuncionesPersonales.h"
 
 /************ FUNCIONES CALCULADORA **************/
 
@@ -97,61 +98,154 @@ int factorial(int num){
 /**************ENTRADA DE DATOS*****************/
 
 
-int getInt(char* mensaje)
+int getInt(int* puntero)
 {
     int numero;
-    printf ("%s",mensaje);
     scanf("%d",&numero);
-    return numero;
+    puntero = &numero;
+    return 0;
 }
 
-float getFloat(char* mensaje)
+int getFloat(float* puntero)
 {
     float numero;
-    printf ("s",mensaje);
-
-    scanf ("%.2f",&numero);
-    return numero;
+    scanf ("%f",&numero);
+    puntero = &numero;
+    return 0;
 }
 
 int getChar(char* mensaje)
 {
     char letra;
-    printf ("s",mensaje);
-    fflush(stdin);
     scanf("%c",&letra);
+    mensaje = &letra;
+    fflush(stdin);
     return letra;
 }
 
-int validar_getEntero(  int* pEntero, char* msg,
-                        char msgErr[],int min, int max,
-                        int reintentos)
-
-{
-    int retorno = -1;
-    int bufferInt;
-    if(pEntero != NULL && msg != NULL && msgErr != NULL
-        && min <= max && max >= min && reintentos >= 0)
-    {
-        do
-        {
-            reintentos--;
-            printf("%s",msg);
-            if( (getInt(&bufferInt) == 1) &&
-                (bufferInt >= min && bufferInt <= max))
-            {
-                *pEntero = bufferInt;
-                retorno = 0;
-                break;
-            }
-            else
-            {
-                fflush(stdin);
-                printf("%s",msgErr);
-            }
-        }while(reintentos>=0);
-
-    }
-    return retorno;
+int getString(char* input){
+scanf("%s",input);
+return 0;
 }
+
+/**************VALIDACION DE DATOS*****************/
+
+int esNumerico(char str[]){
+    int i=0;
+    while(str[i] != '\0' ){
+        if(str[i]<'0' || str[i] > '9')
+            return 0;
+        i++;
+    }
+    return 1;
+}
+
+int esSoloLetras(char str[]){
+    int i=0;
+    while(str[i] != '\0'){
+        if ((str[i] != ' ') &&
+            (str[i] < 'a' || str[i] > 'z') &&
+            (str[i] < 'A' || str[i] > 'Z')){
+            return 0;}
+        i++;
+    }
+    return 1;
+}
+
+int esAlfaNumerico(char str[]){
+    int i=0;
+     while(str[i] != '\0'){
+        if ((str[i] != ' ') &&
+            (str[i] < 'a' || str[i] > 'z') &&
+            (str[i] < 'A' || str[i] > 'Z') &&
+            (str[i] < '0' || str[i] > '9'))
+        return 0;
+    }
+    return 1;
+}
+
+int esTelefono(char str[])
+{
+    int i = 0;
+    int contadorGuiones = 0;
+    while (str[i] != '\0'){
+        if ((str[i] != ' ') && (str[i] != '-') &&
+            (str[i] < '0' || str[i] > '9')){
+            return 0;}
+        if (str[i] == '-'){
+            contadorGuiones++;
+        }
+        i++;
+    }
+    if (contadorGuiones==1){
+        return 1;
+    }
+    return 0;
+}
+
+int getSringLetras(char input[]){
+    char aux[256];
+    getString(aux);
+    if (esNumerico(aux)){
+        strcpy(input,aux);
+        return 1;
+    }
+    return 0;
+}
+
+
+/**************FUNCIONES AGENDA*****************/
+
+int initEmployees(Employee* list, int len){
+int i, retorno;
+retorno = -1;
+    for (i=0;i<len;i++){
+        if (list[i].isEmpty == 0){
+            retorno = i;
+            break;
+        }
+    }
+return retorno;
+}
+
+
+int addEmployee(Employee* list, int len,int id,
+                char name[],char lastName[],
+                float salary, int sector)
+{
+    int r;
+    r = initEmployees(list,CANT);
+    if (r != -1){
+        id = 1000 + r;
+        printf("\nIngrese el Nombre: ");
+        fflush(stdin);
+        scanf("%s",name);
+        printf("\nIngrese el Apellido: ");
+        fflush(stdin);
+        scanf("%s",lastName);
+        printf("\nIngrese el salario: ");
+        scanf("%f",salary);
+        printf("\nIngrese el sector: ");
+        scanf("%d",sector);
+    }
+    else{
+        printf ("No se encuentra espacio disponible");
+    }
+
+    return 0;
+}
+
+int findEmployeeById(Employee* list, int len,int id)
+{
+    int i;
+    for (i=0;i<len;i++){
+        if(list[i].id == id){
+            return i;
+        }
+    }
+ return -1;
+}
+
+
+
 
