@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1538519848 source:d:\flores_gonzalo_1f\floresparcial\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538527298 source:d:\flores_gonzalo_1f\floresparcial\clientejuego.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ClienteJuego.h"
+
+1538527298 d:\flores_gonzalo_1f\floresparcial\clientejuego.h
+
