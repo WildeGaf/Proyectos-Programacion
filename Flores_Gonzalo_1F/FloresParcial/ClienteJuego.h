@@ -45,6 +45,7 @@ int addCliente(eCliente* lista, int len,
                 char nombre[],char apellido[],
                 char domicilio[],char telefono[]);
 int primerEspacioCliente(eCliente* lista, int len);
+int findCliente(eCliente* lista, int len,int codigo);
 //int sortEmployees(Employee* lista, int len, int order);
 
 #endif CLIENTEJUEGO_H_INCLUDED

@@ -84,6 +84,20 @@ int findJuego(eJuegos* lista, int len,int codigo)
     }
 return retorno;
 }
+
+int findCliente(eCliente* lista, int len,int codigo)
+{
+    int retorno = -1;
+    int i;
+    for (i=0;i<len;i++){
+        if(lista[i].codigoCliente == codigo){
+            retorno = i;
+            break;
+        }
+    }
+return retorno;
+}
+
 /*
 int sortEmployees(Employee* lista, int len, int order)
 {

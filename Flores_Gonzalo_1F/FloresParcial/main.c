@@ -11,7 +11,7 @@ int main()
     eCliente listaC[100];
     eJuegos listaJ[20];
     int respuesta,validarTelefono;
-    int validarFindJuego;
+    int validarFindJuego,validarFindCliente,auxCodigoCliente;
     int espacioLibreJuego,espacioLibreCliente;
     char auxDescripcion[51],auxNombre[51],auxApellido[51],auxDomicilio[51],auxTelefono;
     int auxCodigoJuego,auxImporteJuego,au;
@@ -90,7 +90,7 @@ int main()
         }
         switch (opcionElegida){
             case 1:
-                espacioLibreCliente = primerEspacioJuegos(listaC,CANTC);
+                espacioLibreCliente = primerEspacioCliente(listaC,CANTC);
                     if (espacioLibreCliente != -1)
                         printf("Ingrese el apellido del cliente");
                         getSringLetras(auxApellido);
@@ -108,13 +108,25 @@ int main()
                         break;
             }
             case 2:
-                printf("1-Modificar Apellido");
-                printf("2-Modificar Nombre");
-                printf("3-Modificar Domicilio");
-                printf("4-Modificar Telefono");
-                getInt(&opcionElegida);
-                getInt(&opcionElegida);
-                switch (opcionElegida){
+                printf("Ingrese el codigo del cliente que desea modificar");
+                getInt(&auxCodigoCliente);
+                validarFindCliente = findCliente(listaC,CANTC,auxCodigoCliente);
+                if (validarFindCliente == -1){
+                    printf("No se ha encontrado el codigo ingresado");
+                }
+                else{
+                    printf("1-Modificar Apellido");
+                    printf("2-Modificar Nombre");
+                    printf("3-Modificar Domicilio");
+                    printf("4-Modificar Telefono");
+                    getInt(&opcionElegida);
+                    switch (opcionElegida){
+                    case 1:
+                        strcpy(listaC[validarFindCliente].apellido,auxApellido)
+
+
+                    }
+                }
                 break;
             case 3:
                 system("cls");
