@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1538519848 source:d:\flores_gonzalo_1f\floresparcial\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538528274 source:d:\flores_gonzalo_1f\floresparcial\clientejuego.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ClienteJuego.h"
+
+1538528274 d:\flores_gonzalo_1f\floresparcial\clientejuego.h
+
+1538974262 source:c:\users\gonza\desktop\flores_gonzalo_1f\floresparcial\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538975983 source:c:\users\gonza\desktop\flores_gonzalo_1f\floresparcial\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Clientes.h"
+	"input.h"
+
+1538976134 c:\users\gonza\desktop\flores_gonzalo_1f\floresparcial\clientes.h
+
+1538943528 c:\users\gonza\desktop\flores_gonzalo_1f\floresparcial\juegos.h
+
+1538974262 c:\users\gonza\desktop\flores_gonzalo_1f\floresparcial\input.h
+
+1538975994 source:c:\users\gonza\desktop\flores_gonzalo_1f\floresparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"input.h"
+	"Clientes.h"
+	"Juegos.h"
+
+1538975177 source:c:\users\gonza\desktop\flores_gonzalo_1f\floresparcial\juegos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"input.h"
+	"Juegos.h"
+
